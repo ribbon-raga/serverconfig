@@ -1,0 +1,74 @@
+<html>
+<script type="text/javascript">
+    RED.nodes.registerType('serverconfig',{
+        category: 'function',
+        color: '#a6bbcf',
+		
+        defaults: {
+			name: {value:"Server Config"},
+			container: {value: "payload"},				
+			service: {value: "sms"},			
+			runner: {value: ""}			
+        },
+		
+        inputs:1,
+        outputs:1,
+		color: "#FFAAAA",
+        icon: "bridge.svg",
+        label: function() {
+            return this.name||"serverconfig";
+        },
+		labelStyle: function () {
+			return this.name ? "node_label_italic" : "";
+		},	
+		oneditprepare: function () {
+			var node = this;
+			if (this.container === undefined) {
+				$("#node-input-container").val("payload");
+			}
+			$("#node-input-container").typedInput({default: 'msg', types: ['msg']});		
+		},
+		oneditsave: function() {
+			var node = this;
+			node.name = $('#node-input-name').val;
+			node.container = $('#node-input-container').val;		
+			node.service = $('#node-input-service').val;				
+			node.runner = $('#node-input-runner').val;				
+		}
+		
+    });
+</script>
+
+<script type="text/x-red" data-template-name="serverconfig">
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Node Name" style="width:70%;">
+    </div>			
+	
+	<div class="form-row">
+        <label for="node-input-container"><i class="icon-tag"></i>Container</label>
+        <input type="text" id="node-input-container" placeholder="payload" style="width:70%;">
+    </div>
+
+<div>
+	<div class="form-row">
+        <label for="node-input-service"><i class="icon-tag"></i>Service</label>
+        <input type="text" id="node-input-service" placeholder="sms" style="width:70%;">
+    </div>
+
+	<div class="form-row">
+        <label for="node-input-runner"><i class="icon-tag"></i>Runner</label>
+        <input type="text" id="node-input-runner" placeholder="" style="width:70%;">
+    </div>	
+				
+	
+</div>
+	
+</script>
+
+<script type="text/x-red" data-help-name="serverconfig">
+    <p>CPaaS Server, Service & Test configurations</p>
+</script>
+
+</html>

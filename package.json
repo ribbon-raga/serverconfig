@@ -1,0 +1,24 @@
+{
+  "name": "@rganesan/node-red-contrib-serverconfig",
+  "version": "1.0.1",
+  "main": "serverconfig.js",
+  "scripts": {
+    "test": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "node-red": {
+    "nodes": {
+      "serverconfig": "serverconfig.js"
+    }
+  },
+  "description": "Server Config",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ribbon-raga/serverconfig.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ribbon-raga/serverconfig/issues"
+  },
+  "homepage": "https://github.com/ribbon-raga/serverconfig#readme"
+}
