@@ -1,12 +1,11 @@
 <html>
 <script type="text/javascript">
     RED.nodes.registerType('serverconfig',{
-        category: 'function',
+        category: 'ribbon',
         color: '#a6bbcf',
 		
         defaults: {
-			name: {value:"Server Config"},
-			container: {value: "payload"},				
+			name: {value:"Server Config"},		
 			service: {value: "sms"},			
 			runner: {value: ""}			
         },
@@ -15,23 +14,21 @@
         outputs:1,
 		color: "#FFAAAA",
         icon: "bridge.svg",
+		align: "left",
         label: function() {
-            return this.name||"serverconfig";
+            return this.name||"Server Config";
         },
 		labelStyle: function () {
 			return this.name ? "node_label_italic" : "";
 		},	
 		oneditprepare: function () {
-			var node = this;
-			if (this.container === undefined) {
-				$("#node-input-container").val("payload");
-			}
-			$("#node-input-container").typedInput({default: 'msg', types: ['msg']});		
+			$("#node-input-name").val(this.name); 
+			$("#node-input-service").val(this.service); 
+			$("#node-input-runner").val(this.runner); 
 		},
 		oneditsave: function() {
 			var node = this;
-			node.name = $('#node-input-name').val;
-			node.container = $('#node-input-container').val;		
+			node.name = $('#node-input-name').val;				
 			node.service = $('#node-input-service').val;				
 			node.runner = $('#node-input-runner').val;				
 		}
@@ -46,11 +43,6 @@
         <input type="text" id="node-input-name" placeholder="Node Name" style="width:70%;">
     </div>			
 	
-	<div class="form-row">
-        <label for="node-input-container"><i class="icon-tag"></i>Container</label>
-        <input type="text" id="node-input-container" placeholder="payload" style="width:70%;">
-    </div>
-
 <div>
 	<div class="form-row">
         <label for="node-input-service"><i class="icon-tag"></i>Service</label>
