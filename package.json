@@ -1,6 +1,6 @@
 {
   "name": "@rganesan/node-red-contrib-serverconfig",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "serverconfig.js",
   "scripts": {
     "test": ""
